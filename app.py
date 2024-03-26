@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def homepage():
-    return render_template('login.html')
+    return render_template('index.html')
 
 @app.route("/login", methods=["POST"])
 def login():
@@ -14,14 +14,14 @@ def login():
     
     usuarios = conexao.consultar_usuarios()
     for user in usuarios:
-        if user[1] == nome and user[2] == password:
-            return redirect(url_for('success', nome=nome))
+        if user[1] == username and user[2] == password:
+            return redirect(url_for('success', nome=username))
     
     return redirect(url_for('failure'))
 
-@app.route("/success/<nome>")
-def success(nome):
-    return f"<h1>Olá, {nome}! Login bem-sucedido.</h1>"
+@app.route("/success/<username>")
+def success(username):
+    return f"<h1>Olá, {username}! Login bem-sucedido.</h1>"
 
 @app.route("/failure")
 def failure():

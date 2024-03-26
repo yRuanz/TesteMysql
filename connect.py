@@ -18,7 +18,11 @@ def conectar():
 def consultar_usuarios():
     conexao, cursor = conectar()
     cursor.execute('SELECT * FROM usuarios')
-    resultado = cursor
-    cursor.close()
+
+    resultado = []
+    for linha in cursor:
+        resultado.append(linha)
+
+    cursor.close
     conexao.close()
     return resultado
