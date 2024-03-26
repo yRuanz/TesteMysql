@@ -9,16 +9,14 @@ def homepage():
 
 @app.route("/login", methods=["POST"])
 def login():
-    username = request.form.get("username")
+    username = request.form.get("nome")
     password = request.form.get("password")
     
-    # Consulta o banco de dados para verificar se o usuário e senha estão corretos
     usuarios = conexao.consultar_usuarios()
     for user in usuarios:
         if user[1] == nome and user[2] == password:
             return redirect(url_for('success', nome=nome))
     
-    # Se as informações estiverem erradas,será redirecionado para a página de login
     return redirect(url_for('failure'))
 
 @app.route("/success/<nome>")
