@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-sizing:border-box;
+    list-style: none;
+    text-decoration: none;
+  }
+
+body {
+    background-image: linear-gradient(#213c8a,#236cac);
+  }
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+.btn{
+color: #213c8a;
+}
+
+.tableinfos{
+    flex-direction: column;
+    padding: 40px;
+    color: #236cac;
+}
