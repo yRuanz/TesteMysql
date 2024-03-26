@@ -9,13 +9,13 @@ def homepage():
 
 @app.route("/login", methods=["POST"])
 def login():
-    username = request.form.get("nome")
+    username = request.form.get("username")
     password = request.form.get("password")
     
     usuarios = conexao.consultar_usuarios()
     for user in usuarios:
         if user[1] == username and user[2] == password:
-            return redirect(url_for('success', nome=username))
+            return redirect(url_for('success', username=username))
     
     return redirect(url_for('failure'))
 
@@ -28,4 +28,4 @@ def failure():
     return "<h1>Credenciais inválidas. Tente novamente.</h1>"
 
 if __name__=='__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', debug=True)
